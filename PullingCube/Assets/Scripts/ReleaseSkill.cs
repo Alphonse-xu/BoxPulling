@@ -16,7 +16,7 @@ public class ReleaseSkill : MonoBehaviour
 
     void Update()
     {
-                if (pullStar == false && holdGO == false) //如果技能没有释放，也没拿着东西
+        if (pullStar == false && holdGO == false) //如果技能没有释放，也没拿着东西
         {
             if (Input.GetMouseButtonDown(0)) //可以点击鼠标左键释放技能
             {
@@ -29,7 +29,8 @@ public class ReleaseSkill : MonoBehaviour
             if (Input.GetMouseButtonDown(1)) //按下鼠标右键
             {
                 hit.transform.SetParent(null); //放下Cube（解除Cube和双手掌的父子关系）
-                holdGO = false; //空手状态           
+                holdGO = false; //空手状态   
+                
             }
         }
         pull();
@@ -54,7 +55,6 @@ public class ReleaseSkill : MonoBehaviour
         if(Physics.Raycast(ray, out hit,maxPull, hitMask, QueryTriggerInteraction.Collide)){
             hitPos = hit.point;
         }
-        Debug.DrawLine(handPos,doubleHand.transform.forward ,Color.red);
     }
 
     void pull(){
